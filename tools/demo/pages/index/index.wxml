@@ -1,0 +1,32 @@
+<view class="container">
+  <view>
+    <switch checked="{{fullscreen}}" data-type="fullscreen" bind:change="handleToggle">
+      fullscreen
+    </switch>
+  </view>
+
+  <view>
+    <switch checked="{{slotClose}}" data-type="slotClose" bind:change="handleToggle">
+      slot:close
+    </switch>
+  </view>
+
+  <view>
+    <switch checked="{{footerVis}}" data-type="footerVis" bind:change="handleToggle">
+      showFooter
+    </switch>
+  </view>
+
+  <view>
+    <switch checked="{{closeOnClickModal}}" data-type="closeOnClickModal" bind:change="handleToggle">
+      closeOnClickModal
+    </switch>
+  </view>
+
+  <button type="primary" bindtap="toggleDialogVis">打开弹窗</button>
+
+  <comp title="asdfas" fullscreen="{{fullscreen}}" closeOnClickModal="{{closeOnClickModal}}" showFooter="{{footerVis}}" visible="{{dialogVis}}" bind:close="handleClose" bind:confirm="handleClose">
+    弹窗内容
+    <div wx:if="{{slotClose}}" slot="close" style="position: absolute; right: 10rpx; top: 10rpx;">X</div>
+  </comp>
+</view>

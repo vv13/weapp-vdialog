@@ -1,0 +1,18 @@
+<view class="vdialog" wx:if="{{visible}}">
+  <view class='vdialog-mask' catchtouchstart="touchstart"></view>
+  <view class="vdialog-main" style="height:{{fullscreen ? '100%':'auto'}};">
+    <view class="vdialog-container {{fullscreen ? 'fullscreen' : ''}} " style="width: {{width}}%;">
+      <view class='vdialog-title' wx:if="{{title.length>0}}">
+        <view>{{ title }}</view>
+      </view>
+      <slot name="close" bindtap="close"></slot>
+      <view class='vdialog-container__body'>
+        <slot></slot>
+      </view>
+      <view class='vdialog-container__footer' wx:if="{{showFooter}}">
+        <view class='vdialog-container__footer__cancel' bindtap="close">取消</view>
+        <view class='vdialog-container__footer__confirm' bindtap='confirm'>确定</view>
+      </view>
+    </view>
+  </view>
+</view>
